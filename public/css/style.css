@@ -8,13 +8,13 @@ html, body {
     position: absolute;
     top: 0;
     right: 0;
-    bottom: 200px;
+    bottom: 40%;
     left: 0;
 }
 
 .editor-panel {
     position: absolute;
-    height: 200px;
+    height: 40%;
     right: 0;
     left: 0;
     bottom: 0;
@@ -30,6 +30,13 @@ html, body {
 
 .editor-panel .panel-body {
     overflow: scroll;
-    height: 144px;
+    height: 60%;
     padding: 0 14px;
+}
+
+#remainingCount {
+    position: absolute;
+    right: 23px;
+    top: 18px;
+    color: #aaa;
 }
