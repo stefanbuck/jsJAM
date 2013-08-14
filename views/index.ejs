@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/css/style.css' />
+    <link rel='stylesheet' href='/css/bootstrap.min.css' />
+    <script src="js/jquery.min.js"></script>
+    <script src="js/underscore-min.js"></script>
+
+    <script src="js/editor/ace.js" type="text/javascript" charset="utf-8"></script>
+    <script src="js/mousetrap.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="js/main.js"></script>
+
+    <script type="text/javascript">
+        if (typeof jQuery !== 'undefined') {
+            (function ($) {
+                $(function () {
+                    jsJAM.Application.init();
+                });
+            }( jQuery ));
+        }
+    </script>
+  </head>
+  <body>
+
+
+  <div id="editor">(function() {
+      console.log('Start Jam');
+  })()</div>
+
+
+
+
+
+  <div class="editor-panel">
+    <div class="panel">
+      <div class="panel-heading">
+        <button id="run" class="btn btn-primary">Run</button>
+        <button id="clear" class="btn">Clear</button>
+      </div>
+      <div class="panel-body">
+        <div class="output"></div>
+
+      </div>
+    </div>
+
+
+
+  </div>
+
+
+  </body>
+</html>
