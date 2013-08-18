@@ -25,7 +25,6 @@ jsJAM.Editor = function ($) {
 
     JamEditor = function () {
         self = this;
-        self.lastLine = 3;
         self.jamCode = "(function() {\n\tconsole.log('Start Jam');\n\n})();";
 
         self.editor = ace.edit("editor");
@@ -33,9 +32,14 @@ jsJAM.Editor = function ($) {
         self.editor.getSession().setMode("ace/mode/javascript");
         self.editor.setReadOnly(true);
 
-        self.setValue(self.jamCode);
+        self.editor.on('changeSelection', function() {
 
-        self.gotoLine(self.lastLine);
+        });
+
+        window.e = self.editor;
+
+        self.setValue(self.jamCode);
+        self.gotoLine(0);
     };
 
     JamEditor.prototype.getValue = function () {
@@ -65,7 +69,7 @@ jsJAM.Console = function ($, window) {
         self = this;
 
         self.editor = editor;
-        self.maxChars = 50;
+        self.maxChars = 250;
 
         self.$output = $('.output');
         $btnClear = $('#clear');
@@ -79,8 +83,6 @@ jsJAM.Console = function ($, window) {
         self.$jamInput.on('keydown', self.remainingCars);
         self.$jamInput.on('keyup', function (e) {
             self.remainingCars();
-            var code = (e.keyCode ? e.keyCode : e.which);
-            if (code == 13) self.evalJam();
         });
 
         self.remainingCars();
@@ -110,17 +112,12 @@ jsJAM.Console = function ($, window) {
             window.console.log = self.print;
             var code = self.editor.getValue();
             eval(code);
-
             self.editor.jamCode = code;
-
-            self.editor.lastLine++;
-            self.editor.gotoLine(self.editor.lastLine);
             self.$jamInput.val('');
 
         } catch (e) {
             self.print(e.toString());
             self.editor.setValue(self.editor.jamCode);
-            self.editor.gotoLine(self.editor.lastLine);
         }
     }
 

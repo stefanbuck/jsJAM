@@ -8,13 +8,13 @@ html, body {
     position: absolute;
     top: 0;
     right: 0;
-    bottom: 40%;
+    bottom: 60%;
     left: 0;
 }
 
 .editor-panel {
     position: absolute;
-    height: 40%;
+    height: 60%;
     right: 0;
     left: 0;
     bottom: 0;
@@ -30,7 +30,7 @@ html, body {
 
 .editor-panel .panel-body {
     overflow: scroll;
-    height: 60%;
+    height: 40%;
     padding: 0 14px;
 }
 
@@ -39,4 +39,8 @@ html, body {
     right: 23px;
     top: 18px;
     color: #aaa;
+}
+
+#jamInput {
+    height: 120px;
 }
